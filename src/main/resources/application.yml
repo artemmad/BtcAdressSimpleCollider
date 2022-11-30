@@ -1,0 +1,28 @@
+logging:
+    level:
+      com:
+        example:
+          bitadressgenerator: DEBUG
+      org:
+        springframework:
+          web:
+            client:
+              RestTemplate: DEBUG
+          security: DEBUG
+    file:
+      name: logs/${POD_NAME:bit-addr-gen-svc}.log
+    pattern:
+      dateformat: dd-MM-yyyy HH:mm:ss
+    logback:
+      rollingpolicy:
+        max-file-size: 50MB
+        max-history: 183
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bitadress
+    password: mysecretpassword
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
